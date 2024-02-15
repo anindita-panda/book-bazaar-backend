@@ -39,6 +39,8 @@ async function run() {
 		// Connect the client to the server	(optional starting in v4.7)
 		await client.connect();
 
+		console.log("after client connect");
+
 		//Create a collection of documents
 		const bookCollections = client.db("BookInventory").collection("books");
 
@@ -115,6 +117,7 @@ async function run() {
 	} finally {
 		// Ensures that the client will close when you finish/error
 		// await client.close();
+		console.log("inside finally");
 	}
 }
 
