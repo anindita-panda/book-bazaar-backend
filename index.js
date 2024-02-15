@@ -33,6 +33,8 @@ const client = new MongoClient(uri, {
 	},
 });
 
+console.log({client});
+
 async function run() {
 	try {
 		console.log("inside run - try");
