@@ -39,12 +39,14 @@ async function run() {
 	try {
 		console.log("inside run - try");
 		// Connect the client to the server	(optional starting in v4.7)
-		await client.connect();
+		const connect = await client.connect();
 
-		console.log("after client connect");
+		console.log("after client connect", connectss);
 
 		//Create a collection of documents
-		const bookCollections = client.db("BookInventory").collection("books");
+		const bookCollections = await client
+			.db("BookInventory")
+			.collection("books");
 
 		// insert a book to the db : post method
 		app.post("/upload-book", async (req, res) => {
@@ -123,7 +125,7 @@ async function run() {
 	}
 }
 
-run().catch((err) => console.log(err));
+run().catch((err) => console.log({err}));
 
 app.listen(port, () => {
 	//start a server on port 5000
