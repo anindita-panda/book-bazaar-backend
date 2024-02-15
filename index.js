@@ -121,7 +121,7 @@ async function run() {
 	}
 }
 
-run().catch(console.dir);
+run().catch((err) => console.log(err));
 
 app.listen(port, () => {
 	//start a server on port 5000
